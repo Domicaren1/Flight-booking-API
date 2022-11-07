@@ -54,5 +54,22 @@ exports.createFlight = async(req, res)=>{
 }
 
 //update flight
+exports.updateFlight = async(req, res) =>{
+    try{
+    let id = req.params.id;
+    const user = Flights.find((flight)=>user.id ===id);
+    const { email, name, password } = await req.body;
+    user.email = email;
+    user.name =  name;
+    user.password = password;
+    res.status(200).json({
+        message: "Flight  updated",
+        user,
+    });
+
+    }catch(err){
+        res.status(500).json({message:err.message})
+    }
+}
 
 //delete flight
